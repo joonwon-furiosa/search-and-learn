@@ -1,0 +1,35 @@
+# refer to src/sal/config.py for more options
+model_path: "meta-llama/Llama-3.1-8B-Instruct"
+approach: "majority_vote"
+gpu_memory_utilization: 0.9
+seed: 0
+
+# SamplingParams 관련
+temperature: 0.8
+top_p: 1
+top_k: -1
+max_tokens: 2048
+n: 3
+
+prompt: |
+  Solve the following math problem efficiently and clearly:
+
+  - For simple problems (2 steps or fewer):
+  Provide a concise solution with minimal explanation.
+
+  - For complex problems (3 steps or more):
+  Use this step-by-step format:
+
+  ## Step 1: [Concise description]
+  [Brief explanation and calculations]
+
+  ## Step 2: [Concise description]
+  [Brief explanation and calculations]
+
+  ...
+
+  Regardless of the approach, always conclude with:
+
+  Therefore, the final answer is: $\boxed{answer}$. I hope it is correct.
+
+  Where [answer] is just the final number or expression that solves the problem.

@@ -1,0 +1,30 @@
+model_path: "meta-llama/Llama-3.1-8B-Instruct"
+dataset_name: "HuggingFaceH4/MATH-500"
+seed: 0
+dataset_split: "test"
+num_completions: 3
+temperature: 0.8
+top_p: 1.0
+max_tokens: 2048
+prompt: |
+  Solve the following math problem efficiently and clearly:
+
+  - For simple problems (2 steps or fewer):
+    Provide a concise solution with minimal explanation.
+
+  - For complex problems (3 steps or more):
+    Use this step-by-step format:
+
+  ## Step 1: [Concise description]
+  [Brief explanation and calculations]
+
+  ## Step 2: [Concise description]
+  [Brief explanation and calculations]
+
+  ...
+
+  Regardless of the approach, always conclude with:
+
+  Therefore, the final answer is: $\boxed{answer}$. I hope it is correct.
+
+  Where [answer] is just the final number or expression that solves the problem.
