@@ -1,0 +1,30 @@
+{
+  "index": 28,
+  "batch_size": 64,
+  "prediction": "-2+7i",
+  "votes": {
+    "-2+7i": 42,
+    "{z}": 1,
+    "7i-2": 10,
+    "-2-7i": 2,
+    "\\sqrt{53}(\\cos(-\\arctan(3.5)+\\pi)+i\\sin(-\\arctan(3.5)+\\pi))": 1,
+    "x=-5,x=3": 1,
+    "i(7+2i)": 1,
+    "7-2i": 1,
+    "-2": 1,
+    "answer": 1,
+    "-i": 1,
+    "(-2+7i)": 1
+  },
+  "is_correct": true,
+  "avg_power_usage": 535.9796875000001,
+  "e2e_latency_sec": 17.05067753791809,
+  "inference_latency_sec": 17.04654574394226,
+  "output_tps": 5631.639479459644,
+  "timestamps": {
+    "api_start": 1754244934.351068,
+    "batch_done": 1754244951.3976138,
+    "majority_done": 1754244951.4017456
+  },
+  "error": null
+}

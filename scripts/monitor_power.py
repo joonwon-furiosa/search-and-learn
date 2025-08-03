@@ -63,7 +63,7 @@ def monitor_npu_power_usage(
                         / 8
                     )
                     temp = device.device_temperature().soc_peak()
-                    if util > 0:
+                    if util > 0 and power>50:
                         csvfile.write(
                             f"{formatted_timestamp},{device_name},{float(util):.3f},{float(power)},{float(temp):.3f}\n"
                         )

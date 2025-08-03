@@ -1,0 +1,28 @@
+{
+  "index": 82,
+  "batch_size": 64,
+  "prediction": "\\frac{1}{3}",
+  "votes": {
+    "\\frac{3}{2}": 6,
+    "\\frac{3}{4}": 4,
+    "\\frac{1}{2}": 7,
+    "\\frac{3}{5}": 13,
+    "1": 7,
+    "\\frac{1}{3}": 14,
+    "-1": 1,
+    "9": 1,
+    "3": 1,
+    "\\frac{13}{7}": 1
+  },
+  "is_correct": false,
+  "avg_power_usage": 544.3625806451613,
+  "e2e_latency_sec": 17.206136226654053,
+  "inference_latency_sec": 17.20157289505005,
+  "output_tps": 5580.884991489651,
+  "timestamps": {
+    "api_start": 1754245864.0417259,
+    "batch_done": 1754245881.2432988,
+    "majority_done": 1754245881.247862
+  },
+  "error": null
+}

@@ -1,0 +1,21 @@
+{
+  "index": 3,
+  "batch_size": 64,
+  "prediction": "9",
+  "votes": {
+    "9": 62,
+    "3*3": 1,
+    "120": 1
+  },
+  "is_correct": true,
+  "avg_power_usage": 540.7561290322581,
+  "e2e_latency_sec": 16.500081300735474,
+  "inference_latency_sec": 16.495231866836548,
+  "output_tps": 5819.863629380486,
+  "timestamps": {
+    "api_start": 1754244503.5378144,
+    "batch_done": 1754244520.0330462,
+    "majority_done": 1754244520.0378957
+  },
+  "error": null
+}

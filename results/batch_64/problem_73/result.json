@@ -1,0 +1,27 @@
+{
+  "index": 73,
+  "batch_size": 64,
+  "prediction": "\\frac{3\\sqrt{3}}{4}",
+  "votes": {
+    "\\frac{3\\sqrt{3}}{4}": 45,
+    "\\frac{3\u221a3}{4}": 1,
+    "\\frac{3\\sqrt{3}}{8}": 5,
+    "\\frac{4\\sqrt{3}}{9}": 1,
+    "answer": 1,
+    "\\frac{\\sqrt{3}}{3}": 1,
+    "12": 1,
+    "\\sqrt{3}": 1,
+    "\\frac{199}{58}-\\frac{1}{58}i": 1
+  },
+  "is_correct": true,
+  "avg_power_usage": 539.3284375,
+  "e2e_latency_sec": 17.197400331497192,
+  "inference_latency_sec": 17.19321584701538,
+  "output_tps": 5583.597673303503,
+  "timestamps": {
+    "api_start": 1754245704.5392468,
+    "batch_done": 1754245721.7324626,
+    "majority_done": 1754245721.7366471
+  },
+  "error": null
+}

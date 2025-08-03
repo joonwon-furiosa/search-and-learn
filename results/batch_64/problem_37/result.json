@@ -1,0 +1,29 @@
+{
+  "index": 37,
+  "batch_size": 64,
+  "prediction": "360",
+  "votes": {
+    "360": 27,
+    "540": 3,
+    "72": 18,
+    "324": 2,
+    "108": 5,
+    "468": 1,
+    "72*5=360/5=72isnottheGCD,but360/5andtheGCDisafactorof360/108whichis360/36=10or360/9=40andalso360/5=72,sowecanconcludethat360/5isalsoacorrectanswer:theothernumberthatwetook360/5is72and360/5isactually72,andweforgottotakeitfirst": 1,
+    "360/n": 1,
+    "360540": 1,
+    "216": 1,
+    "36": 1
+  },
+  "is_correct": false,
+  "avg_power_usage": 540.9146666666667,
+  "e2e_latency_sec": 16.68627381324768,
+  "inference_latency_sec": 16.680331707000732,
+  "output_tps": 5755.281230990678,
+  "timestamps": {
+    "api_start": 1754245087.6375935,
+    "batch_done": 1754245104.3179252,
+    "majority_done": 1754245104.3238673
+  },
+  "error": null
+}

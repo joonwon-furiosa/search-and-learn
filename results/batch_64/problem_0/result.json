@@ -1,0 +1,32 @@
+{
+  "index": 0,
+  "batch_size": 64,
+  "prediction": "(3,\\frac{\\pi}{2})",
+  "votes": {
+    "(3,\\frac{\\pi}{2})": 41,
+    "(3,90)": 1,
+    "(r,-\\frac{\\pi}{2})": 1,
+    "(3,\\frac{\\pi}{2})or(3,-\\frac{\\pi}{2})": 1,
+    "(3,\\pi/2)": 2,
+    "(3,\\frac{1}{2})": 1,
+    "answer": 2,
+    "(3,1.571)": 1,
+    "(3,\\frac{25\\pi}{2})": 1,
+    "(3,1.6)": 1,
+    "\\frac{\\pi}{2}": 1,
+    "(3,\\frac{3\\pi}{2})": 2,
+    "1.57": 1,
+    "(\\frac{3}{2}\\pi,3)": 1
+  },
+  "is_correct": true,
+  "avg_power_usage": 536.6026666666668,
+  "e2e_latency_sec": 16.672271728515625,
+  "inference_latency_sec": 16.667982578277588,
+  "output_tps": 5759.545256851373,
+  "timestamps": {
+    "api_start": 1754244452.189379,
+    "batch_done": 1754244468.8573616,
+    "majority_done": 1754244468.8616507
+  },
+  "error": null
+}

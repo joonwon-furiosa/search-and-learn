@@ -1,0 +1,22 @@
+{
+  "index": 40,
+  "batch_size": 64,
+  "prediction": "12",
+  "votes": {
+    "12": 58,
+    "1": 1,
+    "12=\\frac{\\frac{96}{1}}{\\frac{8}{1}}=\\frac{96}{8}": 1,
+    "5.33": 1
+  },
+  "is_correct": true,
+  "avg_power_usage": 541.2709375000001,
+  "e2e_latency_sec": 17.01270890235901,
+  "inference_latency_sec": 17.008753061294556,
+  "output_tps": 5644.152728541838,
+  "timestamps": {
+    "api_start": 1754245138.37972,
+    "batch_done": 1754245155.388473,
+    "majority_done": 1754245155.3924289
+  },
+  "error": null
+}
