@@ -315,10 +315,10 @@ def main():
                 full_prompt = f"{config['prompt'].strip()}\n\n### Problem:\n{batch['problem'].strip()}"
                 # print(full_prompt)
                 responses, outputs = asyncio.run(generate_n_responses(full_prompt, n, timestamps))
-                with open(run_dir / "all_responses_debug.json", "w") as f:
-                    json.dump([o.generated_text for o in outputs], f, indent=2)
-                with open(run_dir / "raw_outputs_debug.json", "w") as f:
-                    json.dump([o.__dict__ for o in outputs], f, indent=2, default=str)
+                # with open(run_dir / "all_responses_debug.json", "w") as f:
+                #     json.dump([o.generated_text for o in outputs], f, indent=2)
+                # with open(run_dir / "raw_outputs_debug.json", "w") as f:
+                #     json.dump([o.__dict__ for o in outputs], f, indent=2, default=str)
                 result = majority_vote(batch, responses)
                 print(f"Debug: Majority vote result for idx={idx}, n={n}: pred={result['pred']}, votes={result['votes']}")
                 timestamps["majority_done"] = time.time()
