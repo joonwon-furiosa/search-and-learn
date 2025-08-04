@@ -293,7 +293,7 @@ def main():
     base_dir.mkdir(exist_ok=True)
     dataset = load_dataset(config['dataset_name'], split=config['dataset_split'])
 
-    n_values = [64, 1, 8] # [64, 1, 2, 4, 8, 16, 32, 48]
+    n_values = [8, 1, 64] # [64, 1, 2, 4, 8, 16, 32, 48]
     for idx in range(500):
         for n in n_values:
 
@@ -313,7 +313,7 @@ def main():
                 batch = dataset[idx]
                 
                 full_prompt = f"{config['prompt'].strip()}\n\n### Problem:\n{batch['problem'].strip()}"
-                print(full_prompt)
+                # print(full_prompt)
                 responses, outputs = asyncio.run(generate_n_responses(full_prompt, n, timestamps))
                 with open(run_dir / "all_responses_debug.json", "w") as f:
                     json.dump([o.generated_text for o in outputs], f, indent=2)
@@ -326,7 +326,7 @@ def main():
                 is_correct = is_equiv(result["pred"], batch['answer'], verbose=False)
                 duration = timestamps["majority_done"] - timestamps["api_start"]
                 batch_duration = timestamps["batch_done"] - timestamps["api_start"]
-                num_all_tokens = int(config["output_len"])*n
+                num_all_tokens = int(config["output_len_fix"])*n
                 tps = num_all_tokens / batch_duration if batch_duration > 0 else 0.0
 
             except Exception as e:
