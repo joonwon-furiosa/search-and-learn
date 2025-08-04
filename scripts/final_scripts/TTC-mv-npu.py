@@ -22,6 +22,7 @@ from monitor_power_func import monitor_npu_power_usage, monitor_gpu_power_usage,
 
 # ------------------------- Config -------------------------
 config = {
+    "output_len_fix": "1000",
     "api_url": "http://localhost:8000/v1/chat/completions",
     "model": "EMPTY",
     "dataset_name": "HuggingFaceH4/MATH-500",
@@ -276,7 +277,7 @@ async def generate_n_responses(prompt: str, n: int, timestamps: dict) -> List[st
             prompt=prompt,
             api_url=config["api_url"],
             prompt_len=prompt_len,
-            output_len=1000,
+            output_len=int(config["output_len_fix"]),
             model=config["model"],
         )
         for _ in range(n)
@@ -325,7 +326,7 @@ def main():
                 is_correct = is_equiv(result["pred"], batch['answer'], verbose=False)
                 duration = timestamps["majority_done"] - timestamps["api_start"]
                 batch_duration = timestamps["batch_done"] - timestamps["api_start"]
-                num_all_tokens = 1500*n
+                num_all_tokens = int(config["output_len"])*n
                 tps = num_all_tokens / batch_duration if batch_duration > 0 else 0.0
 
             except Exception as e:
