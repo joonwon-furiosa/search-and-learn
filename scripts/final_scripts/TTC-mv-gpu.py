@@ -23,7 +23,7 @@ from monitor_power_func import monitor_npu_power_usage, monitor_gpu_power_usage,
 # ------------------------- Config -------------------------
 config = {
     "output_len_fix": "1000",
-    "api_url": "http://localhost:8000/v1/chat/completions",  # Assuming vLLM OpenAI-compatible endpoint is unchanged
+    "api_url": "http://localhost:8000/v1/chat/completions",  
     "model": "meta-llama/Llama-3.1-8B-Instruct",
     "dataset_name": "HuggingFaceH4/MATH-500",
     "dataset_split": "test",
@@ -127,9 +127,9 @@ async def async_request_openai_chat_completions(
                 },
             ],
             "temperature": 0.8,
-            "min_tokens": request_func_input.output_len,
-            "max_tokens": request_func_input.output_len,
-            # You may remove "max_completion_tokens" if previously used
+            # "min_tokens": request_func_input.output_len,
+            # "max_tokens": request_func_input.output_len,
+            "max_completion_tokens": 500,
             "stream": True,
             "stream_options": {
                 "include_usage": True,
@@ -320,15 +320,15 @@ def main():
                 # with open(run_dir / "raw_outputs_debug.json", "w") as f:
                 #     json.dump([o.__dict__ for o in outputs], f, indent=2, default=str)
                 result = majority_vote(batch, responses)
-                print(f"Debug: Majority vote result for idx={idx}, n={n}: pred={result['pred']}, votes={result['votes']}")
+                # print(f"Debug: Majority vote result for idx={idx}, n={n}: pred={result['pred']}, votes={result['votes']}")
                 timestamps["majority_done"] = time.time()
 
                 is_correct = is_equiv(result["pred"], batch['answer'], verbose=False)
                 duration = timestamps["majority_done"] - timestamps["api_start"]
                 batch_duration = timestamps["batch_done"] - timestamps["api_start"]
-                num_all_tokens = int(config["output_len_fix"])*n
-                tps = num_all_tokens / batch_duration if batch_duration > 0 else 0.0
-
+                num_all_tokens = sum(len(tokenizer(o.generated_text)["input_ids"]) for o in outputs if o.success)
+                tps = int(num_all_tokens) / batch_duration if batch_duration > 0 else 0.0
+                
             except Exception as e:
                 result = {"error": str(e)}
                 is_correct = False
@@ -354,7 +354,7 @@ def main():
                 "timestamps": timestamps,
                 "error": result.get("error", None),
                 "ttft_avg": np.median([o.ttft for o in outputs if o.success]) if outputs else 0.0,
-                "tpot_avg": np.median([o.itl for o in outputs if o.success]) if outputs else 0.0,
+                "tpot_avg": np.median([lat for o in outputs if o.success for lat in o.itl]) if outputs else 0.0,
                 "fail_rate": 1.0 - len(responses) / len(outputs) if outputs else 1.0,
                 "num_success": len([o for o in outputs if o.success]),
                 "num_fail": len([o for o in outputs if not o.success]),
