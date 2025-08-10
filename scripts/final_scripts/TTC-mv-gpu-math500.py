@@ -293,9 +293,9 @@ def main():
     base_dir.mkdir(exist_ok=True)
     dataset = load_dataset(config['dataset_name'], split=config['dataset_split'])
 
-    n_values = [8, 1, 64] # [64, 1, 2, 4, 8, 16, 32, 48]
-    for idx in range(500):
-        for n in n_values:
+    n_values = [16, 32, 2, 4] # [64, 1, 2, 4, 8, 16, 32, 48]
+    for n in n_values:
+        for idx in range(500):
 
             run_dir = Path(f"results/batch_{n}/problem_{idx}")
             run_dir.mkdir(parents=True, exist_ok=True)
